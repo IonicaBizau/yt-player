@@ -1,0 +1,31 @@
+{
+  "name": "yt-player",
+  "description": "A friendly wrapper around the YouTube Iframe API.",
+  "keywords": [
+    "yt",
+    "player",
+    "a",
+    "friendly",
+    "wrapper",
+    "around",
+    "the",
+    "youtube",
+    "iframe",
+    "api"
+  ],
+  "license": "MIT",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/IonicaBizau/yt-player.git"
+  },
+  "bugs": {
+    "url": "https://github.com/IonicaBizau/yt-player/issues"
+  },
+  "homepage": "https://github.com/IonicaBizau/yt-player#readme"
+}
