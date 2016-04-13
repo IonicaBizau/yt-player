@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <script src="../dist/yt-player.min.js"></script>
+    </head>
+    <body>
+        <div id="player_elm"></div>
+        <div id="anotherId"></div>
+        <script>
+            player = new YTPlayer("player_elm");
+            player
+                .cueVideoById("rUkeVnbkHzs")
+                .playVideo()
+                ;
+
+            player.on("paused", function () {
+                anotherId.appendChild(player_elm);
+            });
+        </script>
+    </body>
+</html>
