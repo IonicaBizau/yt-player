@@ -18,6 +18,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "rls": "npm run dev-release && babel dist/yt-player.min.js -o dist/yt-player.min.js",
     "release": "npm run dev-release && babel dist/yt-player.min.js | uglifyjs -c -m -o dist/yt-player.min.js",
     "dev-release": "browserify lib/index.js -o dist/yt-player.min.js -s YTPlayer"
   },
