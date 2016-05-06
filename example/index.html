@@ -10,23 +10,18 @@
         <div id="anotherId"></div>
         <script>
             player = new YTPlayer("player_elm", {
+                handleFullscreen: true
             });
             player.addEventListener("onStateChange", function (e) {
                 console.log(e);
             });
             player.cueVideoById("rUkeVnbkHzs")
-//                .playVideo()
-//                ;
-
-            //setInterval(function () {
-            //    player.getCurrentTime().then(function (c) {
-            //        console.log(c);
-            //    });
-            //}, 10);
-
-            //player.on("paused", function () {
-            //    anotherId.appendChild(player_elm);
-            //});
+            player.on("fullscreen-enter", function () {
+                console.log(">> Fullscreen");
+            });
+            player.on("fullscreen-exit", function () {
+                console.log(">> Fullscreen exit");
+            });
         </script>
     </body>
 </html>
