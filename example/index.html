@@ -12,6 +12,9 @@
             player = new YTPlayer("player_elm", {
                 handleFullscreen: true
             });
+            player.on("ready", function () {
+                alert("Ready");
+            });
             player.addEventListener("onStateChange", function (e) {
                 console.log(e);
             });
@@ -23,5 +26,6 @@
                 console.log(">> Fullscreen exit");
             });
         </script>
+        <button onclick="player.playVideo()" style="padding:90px">Play</button>
     </body>
 </html>
