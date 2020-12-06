@@ -16,6 +16,9 @@
                 console.log(e);
             });
             player.cueVideoById("rUkeVnbkHzs")
+            player.on("seek_event", function () {
+                console.log(">> Fullscreen");
+            });
             player.on("fullscreen-enter", function () {
                 console.log(">> Fullscreen");
             });

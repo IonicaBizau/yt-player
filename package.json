@@ -41,5 +41,8 @@
     "lc-first": "^1.0.2",
     "noop6": "^1.0.0",
     "ul": "^5.2.1"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0"
   }
 }
