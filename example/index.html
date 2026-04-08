@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <script src="../dist/yt-player.min.js"></script>
+        <script src="../dist/yt-player.js"></script>
     </head>
     <body>
         <div id="player_elm"></div>
@@ -12,19 +12,28 @@
             player = new YTPlayer("player_elm", {
                 handleFullscreen: true
             });
+
             player.addEventListener("onStateChange", function (e) {
                 console.log(e);
             });
+
             player.cueVideoById("rUkeVnbkHzs")
+
             player.on("seek_event", function () {
                 console.log(">> Fullscreen");
             });
+
             player.on("fullscreen-enter", function () {
                 console.log(">> Fullscreen");
             });
+
             player.on("fullscreen-exit", function () {
                 console.log(">> Fullscreen exit");
             });
+
+            player.on("error", e => {
+                console.error(">> Error", e);
+            })
         </script>
     </body>
 </html>
