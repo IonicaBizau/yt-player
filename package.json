@@ -1,8 +1,8 @@
 {
-  "name": "yt-player",
+  "name": "youtube-player",
   "description": "A friendly wrapper around the YouTube Iframe API.",
   "keywords": [
-    "yt",
+    "youtube",
     "player",
     "a",
     "friendly",
@@ -14,7 +14,7 @@
     "api"
   ],
   "license": "MIT",
-  "version": "4.0.0",
+  "version": "5.6.1",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
