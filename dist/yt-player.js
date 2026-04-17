@@ -550,11 +550,91 @@ var YTPlayer = (() => {
           }
           return this;
         }
+        async safePlay() {
+          if (isAndroidOrIOS) return this;
+          const player = this.player;
+          let tries = 10;
+          let timeoutId;
+          let finished = false;
+          let bufferingSince = null;
+          let bufferingCheckId;
+          return new Promise((resolve, reject) => {
+            const cleanup = () => {
+              finished = true;
+              clearTimeout(timeoutId);
+              clearInterval(bufferingCheckId);
+              player.removeEventListener("onStateChange", onStateChange);
+              player.removeEventListener("onError", onError);
+            };
+            const success = () => {
+              if (finished) return;
+              cleanup();
+              resolve(this);
+            };
+            const fail = (err) => {
+              if (finished) return;
+              cleanup();
+              reject(err);
+            };
+            const restartPlayback = () => {
+              try {
+                player.stopVideo();
+                setTimeout(() => {
+                  player.playVideo();
+                }, 100);
+              } catch (e) {
+              }
+            };
+            const tryPlay = () => {
+              if (finished) return;
+              try {
+                player.playVideo();
+              } catch (e) {
+              }
+              timeoutId = setTimeout(() => {
+                if (finished) return;
+                if (tries-- <= 0) {
+                  return fail(new Error("Playback timeout"));
+                }
+                setTimeout(tryPlay, 300);
+              }, 3e3);
+            };
+            const onStateChange = (e) => {
+              const state = e.data;
+              if (state === YT.PlayerState.PLAYING) {
+                bufferingSince = null;
+                success();
+              }
+              if (state === YT.PlayerState.BUFFERING) {
+                if (!bufferingSince) {
+                  bufferingSince = Date.now();
+                }
+              } else {
+                bufferingSince = null;
+              }
+            };
+            const onError = (e) => {
+              fail(new Error(`YouTube error: ${e.data}`));
+            };
+            bufferingCheckId = setInterval(() => {
+              if (finished || !bufferingSince) return;
+              const elapsed = Date.now() - bufferingSince;
+              if (elapsed > 1e4) {
+                console.warn("Buffering too long \u2192 restarting playback");
+                bufferingSince = Date.now();
+                restartPlayback();
+              }
+            }, 1e3);
+            player.addEventListener("onStateChange", onStateChange);
+            player.addEventListener("onError", onError);
+            tryPlay();
+          });
+        }
       };
       YT_FUNCS.forEach((c) => {
         YTPlayer.prototype[c] = function(...args) {
           this.executedFuncs.push([c, args]);
-          let res = {
+          const res = {
             cb: noop,
             __inst: this.__inst || this,
             resolve: function(...resolvedArgs) {
