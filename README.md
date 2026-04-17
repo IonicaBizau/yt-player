@@ -17,9 +17,9 @@
 
 
 
-# yt-play
+# youtube-play
 
- [![Support me on Patreon][badge_patreon]][patreon] [![Buy me a book][badge_amazon]][amazon] [![PayPal][badge_paypal_donate]][paypal-donations] [![Ask me anything](https://img.shields.io/badge/ask%20me-anything-1abc9c.svg)](https://github.com/IonicaBizau/ama) [![Version](https://img.shields.io/npm/v/yt-play.svg)](https://www.npmjs.com/package/yt-play) [![Downloads](https://img.shields.io/npm/dt/yt-play.svg)](https://www.npmjs.com/package/yt-play) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/@johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
+ [![Support me on Patreon][badge_patreon]][patreon] [![Buy me a book][badge_amazon]][amazon] [![PayPal][badge_paypal_donate]][paypal-donations] [![Ask me anything](https://img.shields.io/badge/ask%20me-anything-1abc9c.svg)](https://github.com/IonicaBizau/ama) [![Version](https://img.shields.io/npm/v/youtube-play.svg)](https://www.npmjs.com/package/youtube-play) [![Downloads](https://img.shields.io/npm/dt/youtube-play.svg)](https://www.npmjs.com/package/youtube-play) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/@johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
 
 <a href="https://www.buymeacoffee.com/H96WwChMy" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee"></a>
 
@@ -56,10 +56,10 @@ If you're using this module in a CommonJS environment, you can install it using 
 
 ```sh
 # Using npm
-npm install --save yt-play
+npm install --save youtube-play
 
 # Using yarn
-yarn add yt-play
+yarn add youtube-play
 ```
 
 
@@ -79,7 +79,7 @@ yarn add yt-play
 
 
 ```js
-const ytPlayer = require("yt-play");
+const ytPlayer = require("youtube-play");
 
 console.log(ytPlayer());
 ```
